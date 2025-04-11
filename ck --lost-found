@@ -1,0 +1,20 @@
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{0}: checkout: moving from Day3 to Day5
+[33mc5094b3[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;32mDay3[m[33m)[m HEAD@{1}: checkout: moving from Day5 to Day3
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{2}: checkout: moving from Day4 to Day5
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{3}: checkout: moving from Day5 to Day4
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{4}: checkout: moving from Day1 to Day5
+[33ma0a686f[m[33m ([m[1;31morigin/Day1[m[33m, [m[1;32mday1[m[33m)[m HEAD@{5}: checkout: moving from Day5 to Day1
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{6}: checkout: moving from Day4 to Day5
+[33m13d3875[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mDay5[m[33m, [m[1;31morigin/Day5[m[33m, [m[1;31morigin/Day4[m[33m, [m[1;32mDay4[m[33m)[m HEAD@{7}: commit (amend): day4 completed
+[33mc5094b3[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;32mDay3[m[33m)[m HEAD@{8}: rebase (finish): returning to refs/heads/Day4
+[33mc5094b3[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;32mDay3[m[33m)[m HEAD@{9}: rebase (start): checkout c5094b3c58ff4303942b933bcb345eadaa50d604
+[33md4b1f94[m HEAD@{10}: commit: day3 completed
+[33mc5094b3[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;32mDay3[m[33m)[m HEAD@{11}: checkout: moving from Day3 to Day4
+[33mc5094b3[m[33m ([m[1;31morigin/Day3[m[33m, [m[1;32mDay3[m[33m)[m HEAD@{12}: commit (amend): day3 completed
+[33m44f023d[m HEAD@{13}: commit (amend): day2 completed
+[33m626d358[m[33m ([m[1;31morigin/Day2[m[33m, [m[1;32mDay2[m[33m)[m HEAD@{14}: checkout: moving from Day2 to Day3
+[33m626d358[m[33m ([m[1;31morigin/Day2[m[33m, [m[1;32mDay2[m[33m)[m HEAD@{15}: commit: day2 completed
+[33ma0a686f[m[33m ([m[1;31morigin/Day1[m[33m, [m[1;32mday1[m[33m)[m HEAD@{16}: checkout: moving from day1 to Day2
+[33ma0a686f[m[33m ([m[1;31morigin/Day1[m[33m, [m[1;32mday1[m[33m)[m HEAD@{17}: commit (amend): day1 completed
+[33m3272737[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{18}: checkout: moving from master to day1
+[33m3272737[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{19}: commit (initial): first comments
