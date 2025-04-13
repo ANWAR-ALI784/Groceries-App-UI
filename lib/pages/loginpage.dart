@@ -36,12 +36,9 @@ class _LoginpageState extends State<Loginpage> {
                   labelText: "UserName",
                   hintText: " Enter Username",
                 ),
-                onChanged: (value){
-                  Name=value;
-                  setState(() {
-
-                  });
-
+                onChanged: (value) {
+                  Name = value;
+                  setState(() {});
                 },
               ),
               TextFormField(
@@ -56,25 +53,32 @@ class _LoginpageState extends State<Loginpage> {
               ),
               InkWell(
                 onTap: () async {
-                  changeButton=true;
-                  setState(()  {
 
+                  setState(() {
+                    changeButton = true;
                   });
                   await Future.delayed(Duration(seconds: 1));
-                  Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  setState(() {
+                    changeButton = false;
+                  });
+
                 },
-                child: AnimatedContainer(duration: Duration(seconds: 1),
-                  height:50,
-                  width:  changeButton ? 50:150,
+                child: AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  height: 50,
+                  width: changeButton ? 50 : 150,
                   alignment: Alignment.center,
-
-                  child:changeButton?Icon(Icons.done,color: Colors.white,) :Text("LogIn"),
-
-                  decoration:  BoxDecoration(
-                    borderRadius: BorderRadius.circular(changeButton?50:8),
-
-                    color: Colors.deepPurple
-                  ),
+                  child: changeButton
+                      ? Icon(
+                          Icons.done,
+                          color: Colors.white,
+                        )
+                      : Text("LogIn"),
+                  decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 50 : 8),
+                      color: Colors.deepPurple),
                 ),
               ),
 
