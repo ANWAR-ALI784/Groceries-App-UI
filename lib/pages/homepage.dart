@@ -1,3 +1,4 @@
+import 'package:catalogapp/utils/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -20,7 +21,7 @@ class Homepage extends StatelessWidget {
       body: Container(
         child: const Center(child: Text("welcome to  fyp project")),
       ),
-      drawer: Drawer(backgroundColor: Colors.deepPurple,),
+      drawer: const MyDrawer(),
     );
   }
 }
