@@ -11,7 +11,7 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
 
 
-        backgroundColor: Colors.green,
+        // backgroundColor: Colors.green,
 
 
         title: const Text("Catalog App"),
