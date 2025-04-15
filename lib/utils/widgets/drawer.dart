@@ -6,12 +6,13 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
 
+
       child: Container(
         color: Colors.deepPurple,
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const [
-            UserAccountsDrawerHeader(
+          children: [
+            const UserAccountsDrawerHeader(
               margin: EdgeInsets.zero,
           accountName: Text("anwar"),
         accountEmail: Text("anwraali39@gmaiol.com"),
@@ -20,14 +21,15 @@ class MyDrawer extends StatelessWidget {
         ),
             ),
             ListTile(
+              onTap:(){},
               leading: Icon(Icons.home,color: Colors.white,),
               title: Text("Home",style: TextStyle(color: Colors.white),),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.person,color: Colors.white,),
               title: Text("Account",style: TextStyle(color: Colors.white),),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(Icons.settings,color: Colors.white,),
               title: Text("Settings",style: TextStyle(color: Colors.white),),
             ),
