@@ -15,7 +15,7 @@ class Item {
     required this.price,
   });
 }
-
+//object class
 class CatalogModel {
   static final List<Item> items = [
     Item(
