@@ -21,10 +21,14 @@ class _HomepageState extends State<Homepage> {
     loadData();
   }
   loadData()async{
-    final catalogJson=await rootBundle.loadString("assests/files/catalog.json");
+    final catalogJson=await rootBundle.loadString("assets/files/catalog.json");
     final decodeData=jsonDecode(catalogJson);
-    var productData=decodeData("products");
-    print(productData);
+    var productData=decodeData["products"];
+    CatalogModel.items=List.from(productData).map<Item>((item)=>Item.fromMap(item)).toList();
+    // print(CatalogModel.items);
+    setState(() {
+
+    });
 
   }
   @override
@@ -32,7 +36,7 @@ class _HomepageState extends State<Homepage> {
   //widget is type of build function that return a widget
   // and build context is parameter
   Widget build(BuildContext context) {
-    final dummyList=List.generate(20, (index)=>CatalogModel.items[index % CatalogModel.items.length]);
+   // final dummyList=List.generate(20, (index)=>CatalogModel.items[index % CatalogModel.items.length]);
     //final dummyList = CatalogModel.items;
 
     return Scaffold(
@@ -48,9 +52,9 @@ class _HomepageState extends State<Homepage> {
 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(itemCount: dummyList.length, //CatalogModel.items
+        child: ListView.builder(itemCount: CatalogModel.items.length, //CatalogModel.items
         itemBuilder: (context,index){
-          return ItemWidget(item:dummyList[index]); //CatalogModel.items
+          return ItemWidget(item:CatalogModel.items[index]); //CatalogModel.items
         },),
       ),
       drawer: const MyDrawer(),

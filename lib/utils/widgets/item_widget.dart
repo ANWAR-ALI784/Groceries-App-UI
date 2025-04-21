@@ -20,7 +20,7 @@ class ItemWidget extends StatelessWidget {
       borderOnForeground: true,
       child: ListTile(
         onTap: (){print("${item.name} pressed");},
-        leading: SizedBox(height:40,width:40,child: Image.network(item.image)),
+        leading: SizedBox(height:40,width:40,child: Image.network(item.imageUrl)),
         title: Text(item.name),
         subtitle: Text(item.desc),
         trailing:Text("\$${item.price}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.deepPurple),) ,

@@ -41,7 +41,7 @@ class _LoginpageState extends State<Loginpage> {
             key: _forKey,
             child: Column(
               children: [
-                Image.asset("assests/images/giftitem.png"),
+                Image.asset("assets/images/giftitem.png"),
                 const SizedBox(
                   height: 20,
                 ),
