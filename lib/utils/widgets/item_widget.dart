@@ -19,7 +19,8 @@ class ItemWidget extends StatelessWidget {
 
       borderOnForeground: true,
       child: ListTile(
-        onTap: (){print("${item.name} pressed");},
+        onTap: (){
+          print("${item.name} pressed");},
         leading: SizedBox(height:40,width:40,child: Image.network(item.imageUrl)),
         title: Text(item.name),
         subtitle: Text(item.desc),

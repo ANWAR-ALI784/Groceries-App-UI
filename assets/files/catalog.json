@@ -6,7 +6,7 @@
       "desc": "this is good",
       "price": 999,
       "color": "red",
-      "imageUrl": "https://source.unsplash.com/random/400x400?mobile"
+      "imageUrl": "https://images.pexels.com/photos/4065896/pexels-photo-4065896.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "desc": "high performance",
       "price": 1500,
       "color": "black",
-      "imageUrl": "https://source.unsplash.com/random/400x400?laptop"
+      "imageUrl": "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "desc": "portable and fast",
       "price": 800,
       "color": "silver",
-      "imageUrl": "https://source.unsplash.com/random/400x400?tablet"
+      "imageUrl": "https://images.pexels.com/photos/5082564/pexels-photo-5082564.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "desc": "track your fitness",
       "price": 200,
       "color": "blue",
-      "imageUrl": "https://source.unsplash.com/random/400x400?smartwatch"
+      "imageUrl": "https://images.pexels.com/photos/277394/pexels-photo-277394.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "desc": "clear sound quality",
       "price": 150,
       "color": "white",
-      "imageUrl": "https://source.unsplash.com/random/400x400?headphones"
+      "imageUrl": "https://images.pexels.com/photos/3394657/pexels-photo-3394657.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "desc": "capture high-quality photos",
       "price": 1200,
       "color": "grey",
-      "imageUrl": "https://source.unsplash.com/random/400x400?camera"
+      "imageUrl": "https://images.pexels.com/photos/51383/camera-lens-digital-camera-slr-camera-51383.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "desc": "mechanical and smooth",
       "price": 100,
       "color": "black",
-      "imageUrl": "https://source.unsplash.com/random/400x400?keyboard"
+      "imageUrl": "https://images.pexels.com/photos/239898/pexels-photo-239898.jpeg?auto=compress&cs=tinysrgb&w=600"
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "desc": "ergonomic design",
       "price": 50,
       "color": "black",
-      "imageUrl": "https://source.unsplash.com/random/400x400?mouse"
+      "imageUrl": "https://images.pexels.com/photos/2047914/pexels-photo-2047914.jpeg?auto=compress&cs=tinysrgb&w=600"
     }
   ]
 }
