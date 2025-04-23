@@ -61,24 +61,29 @@ class _HomepageState extends State<Homepage> {
             //   )
             GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
+                  crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
                 ),
                 itemBuilder: (context, index) {
                   final item = CatalogModel.items[index];
                   return Card(
-                    clipBehavior: Clip.antiAlias,
+                      clipBehavior: Clip.antiAlias,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       child: GridTile(
-                        header: Text(item.name),
-                          footer: Text(item.price.toString()),
+                          header: Container(
+                              child: Text(item.name,style: TextStyle(color: Colors.white),),
+                          padding: EdgeInsets.all(8),
+                          decoration: const BoxDecoration(color: Colors.deepPurple),),
+                          footer: Container(child: Text(item.price.toString(),style: TextStyle(color: Colors.white),),
+                            padding: const EdgeInsets.all(8),
+                          decoration: const BoxDecoration(color: Colors.black),),
                           child: Image.network(item.imageUrl)));
                 },
                 itemCount: CatalogModel.items.length,
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ),
       ),
