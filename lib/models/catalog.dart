@@ -32,22 +32,22 @@ class Item {
 //object class
 class CatalogModel {
   static  List<Item> items = [
-    Item(
-      id: 1,
-      name: "Mobile",
-      desc: "This is a good mobile phone.",
-      price: 999,
-      color: "Red",
-      imageUrl: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600",
-    ),
-    Item(
-      id: 2,
-      name: "Headphones",
-      desc: "Noise cancelling headphones.",
-      price: 199,
-      color: "Black",
-      imageUrl: "https://images.pexels.com/photos/3394663/pexels-photo-3394663.jpeg?auto=compress&cs=tinysrgb&w=600",
-    ),
+    // Item(
+    //   id: 1,
+    //   name: "Mobile",
+    //   desc: "This is a good mobile phone.",
+    //   price: 999,
+    //   color: "Red",
+    //   imageUrl: "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=600",
+    // ),
+    // Item(
+    //   id: 2,
+    //   name: "Headphones",
+    //   desc: "Noise cancelling headphones.",
+    //   price: 199,
+    //   color: "Black",
+    //   imageUrl: "https://images.pexels.com/photos/3394663/pexels-photo-3394663.jpeg?auto=compress&cs=tinysrgb&w=600",
+    // ),
 
   ];
 }
