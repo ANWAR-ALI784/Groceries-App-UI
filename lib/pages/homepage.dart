@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:catalogapp/models/catalog.dart';
 import 'package:catalogapp/utils/widgets/drawer.dart';
+import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../utils/widgets/item_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,77 +17,158 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     loadData();
   }
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    final catalogJson =
-        await rootBundle.loadString("assets/files/catalog.json");
+    final catalogJson = await rootBundle.loadString("assets/files/catalog.json");
     final decodeData = jsonDecode(catalogJson);
     var productData = decodeData["products"];
     CatalogModel.items =
         List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
-    // print(CatalogModel.items);
     setState(() {});
   }
 
   @override
-
-  //widget is type of build function that return a widget
-  // and build context is parameter
   Widget build(BuildContext context) {
-    // final dummyList=List.generate(20, (index)=>CatalogModel.items[index % CatalogModel.items.length]);
-    //final dummyList = CatalogModel.items;
-
     return Scaffold(
-      appBar: AppBar(
-        // backgroundColor: Colors.green,
+      backgroundColor: MyTheme.Bulish,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CatalogHeader(),
+              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+                Expanded(child: CatalogList())
+              else
+                Center(child: CircularProgressIndicator()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
-        title: const Text("Catalog App"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ?
-            // ? ListView.builder(
-            //     itemCount: CatalogModel.items.length, //CatalogModel.items
-            //     itemBuilder: (context, index) {
-            //       return ItemWidget(
-            //           item: CatalogModel.items[index]); //CatalogModel.items
-            //     },
-            //   )
-            GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
+class CatalogHeader extends StatelessWidget {
+  const CatalogHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Catalog App",
+          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          "Trending Products",
+          style: TextStyle(color: Colors.grey, fontSize: 20),
+        )
+      ],
+    );
+  }
+}
+
+class CatalogList extends StatelessWidget {
+  const CatalogList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: CatalogModel.items.length,
+        itemBuilder: (context, index) {
+          final catalog = CatalogModel.items[index];
+          return CatalogItem(catalog: catalog);
+        });
+  }
+}
+
+class CatalogItem extends StatelessWidget {
+  final Item catalog;
+
+  const CatalogItem({super.key, required this.catalog});
+
+  @override
+  Widget build(BuildContext context) {
+    // Custom caption style
+    TextStyle captionStyle = GoogleFonts.poppins(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: Colors.grey, // You can change this color as needed
+    );
+
+    return Container(
+      height: 150,
+      padding: EdgeInsets.symmetric(vertical: 10.0),
+      decoration: BoxDecoration(color: Colors.white54, shape: BoxShape.rectangle),
+      child: Card(
+        color: Colors.white,
+        child: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.3,
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: MyTheme.Bulish,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                itemBuilder: (context, index) {
-                  final item = CatalogModel.items[index];
-                  return Card(
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      child: GridTile(
-                          header: Container(
-                              child: Text(item.name,style: TextStyle(color: Colors.white),),
-                          padding: EdgeInsets.all(8),
-                          decoration: const BoxDecoration(color: Colors.deepPurple),),
-                          footer: Container(child: Text(item.price.toString(),style: TextStyle(color: Colors.white),),
-                            padding: const EdgeInsets.all(8),
-                          decoration: const BoxDecoration(color: Colors.black),),
-                          child: Image.network(item.imageUrl)));
-                },
-                itemCount: CatalogModel.items.length,
-              )
-            : const Center(
-                child: CircularProgressIndicator(),
+                child: Image.network(catalog.imageUrl),
               ),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    catalog.name,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: MyTheme.CreamColor),
+                  ),
+                  Text(
+                    catalog.desc,
+                    style: captionStyle, // Apply custom caption style here
+                  ),
+                  OverflowBar(
+
+
+                    alignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("\$${catalog.price}".toString()),
+                      ElevatedButton(
+                        autofocus: true,
+
+
+                         style: ElevatedButton.styleFrom(
+                           padding: EdgeInsets.symmetric(horizontal: 16),
+                          backgroundColor: Colors.deepPurple, // Set the button background color
+                        //   shape: RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.zero, // Make the button rectangular
+                        //   ),
+                         ),
+                        onPressed: () {
+                          print("Button Pressed\ ${catalog.name}");
+                        },
+                        child: Text("Buy",style: TextStyle(color: Colors.white),),
+                      ),
+                    ],
+
+                  )
+
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-      drawer: const MyDrawer(),
     );
   }
 }

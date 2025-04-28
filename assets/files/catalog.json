@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "name": "mobile",
+      "name": "Mobile",
       "desc": "this is good",
       "price": 999,
       "color": "red",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "name": "laptop",
+      "name": "Laptop",
       "desc": "high performance",
       "price": 1500,
       "color": "black",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "name": "tablet",
+      "name": "Tablet",
       "desc": "portable and fast",
       "price": 800,
       "color": "silver",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "name": "smartwatch",
+      "name": "Smartwatch",
       "desc": "track your fitness",
       "price": 200,
       "color": "blue",
@@ -34,28 +34,28 @@
     },
     {
       "id": 5,
-      "name": "headphones",
+      "name": "Headphones",
       "desc": "clear sound quality",
       "price": 150,
       "color": "white",
       "imageUrl": "https://images.pexels.com/photos/844923/pexels-photo-844923.jpeg?auto=compress&cs=tinysrgb&w=600"},
     {
       "id": 6,
-      "name": "camera",
+      "name": "Camera",
       "desc": "capture high-quality photos",
       "price": 1200,
       "color": "grey",
       "imageUrl": "https://images.pexels.com/photos/952264/pexels-photo-952264.jpeg?auto=compress&cs=tinysrgb&w=600"},
     {
       "id": 7,
-      "name": "keyboard",
+      "name": "Keyboard",
       "desc": "mechanical and smooth",
       "price": 100,
       "color": "black",
       "imageUrl": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
     {
       "id": 8,
-      "name": "mouse",
+      "name": "Mouse",
       "desc": "ergonomic design",
       "price": 50,
       "color": "black",
