@@ -1,6 +1,6 @@
 import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
-
+import 'package:lorem_ipsum/lorem_ipsum.dart';
 import '../models/catalog.dart';
 
 class HomeDetailsPage extends StatelessWidget {
@@ -12,7 +12,9 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
 
       bottomNavigationBar:   Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,8 +45,8 @@ class HomeDetailsPage extends StatelessWidget {
                 print("Buy pressed for ${catalog.name}");
               },
               child: Text(
-                "Buy",
-                style: TextStyle(color: Colors.white,fontSize: 18),
+                "Add to Cart",
+                style: TextStyle(color: Colors.white,fontSize: 12),
               ),
             ),
           )
@@ -81,6 +83,12 @@ class HomeDetailsPage extends StatelessWidget {
               catalog.desc,
               style: TextStyle(fontSize: 18,color: MyTheme.CreamColor)
             ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                loremIpsum(words: 40),style: TextStyle(color: MyTheme.CreamColor),
+              ),
+            ),
             const Spacer(),
           ],
         ),
@@ -94,14 +102,14 @@ class ArcClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    path.lineTo(0, size.height - 40);
+    path.lineTo(0, size.height - 30);
     path.quadraticBezierTo(
-        size.width/2 , size.height, size.width, size.height - 40);
+        size.width/2 , size.height, size.width, size.height -30);
     path.lineTo(size.width, 0);
     path.close();
     return path;
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

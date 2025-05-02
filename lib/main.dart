@@ -1,3 +1,4 @@
+import 'package:catalogapp/pages/cart_page.dart';
 import 'package:catalogapp/pages/homepage.dart';
 import 'package:catalogapp/pages/loginpage.dart';
 import 'package:catalogapp/utils/routes.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         // "/login":(context) => const Loginpage(), best practise is this
         MyRoutes.loginRoute:(context)=> const Loginpage(),
         MyRoutes.homeRoute:(context)=> const Homepage(),
+        MyRoutes.CartPage:(context)=>const CartPage(),
       },
     );
   }

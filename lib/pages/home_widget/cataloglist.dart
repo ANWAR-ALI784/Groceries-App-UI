@@ -116,11 +116,12 @@ class CatalogItem extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
+
                         print("Buy pressed for ${catalog.name}");
                       },
                       child: Text(
-                        "Buy",
-                        style: TextStyle(color: Colors.white),
+                        "Add to Cart",
+                        style: TextStyle(color: Colors.white,fontSize: 12),
                       ),
                     )
                   ],

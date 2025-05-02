@@ -1,13 +1,16 @@
 import 'dart:convert';
 
 import 'package:catalogapp/models/catalog.dart';
+import 'package:catalogapp/utils/routes.dart';
 import 'package:catalogapp/utils/widgets/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:cupertino_icons/cupertino_icons.dart';
 import 'home_widget/catalogeader.dart';
 import 'home_widget/cataloglist.dart';
+import 'package:catalogapp/utils/routes.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -25,7 +28,8 @@ class _HomepageState extends State<Homepage> {
 
   loadData() async {
     await Future.delayed(Duration(seconds: 2));
-    final catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
     final decodeData = jsonDecode(catalogJson);
     var productData = decodeData["products"];
     CatalogModel.items =
@@ -37,6 +41,13 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.Bulish,
+      //floatingAction Button
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()=>
+            Navigator.pushNamed(context, MyRoutes.CartPage),
+        backgroundColor: MyTheme.CreamColor,
+        child: Icon(CupertinoIcons.cart,color: Colors.white,size: 30,),
+      ),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(32),
@@ -55,6 +66,3 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
-
-
-
