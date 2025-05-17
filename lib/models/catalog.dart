@@ -15,23 +15,31 @@ class Item {
     required this.price,
   });
   //decode data from map to json
-  factory Item.fromMap(Map<String,dynamic>map){
-    return Item(id: map["id"],
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
         name: map["name"],
         desc: map["desc"],
         color: map["color"],
         imageUrl: map["imageUrl"],
         price: map["price"]);
-
   }
   // endcode data to map
-  toMap(){
-    return {"id":id,"name":name,"desc":desc,"color":color,"imageUrl":imageUrl,"price":price};
+  toMap() {
+    return {
+      "id": id,
+      "name": name,
+      "desc": desc,
+      "color": color,
+      "imageUrl": imageUrl,
+      "price": price
+    };
   }
 }
+
 //object class
 class CatalogModel {
-  static  List<Item> items = [
+  static List<Item> items = [
     // Item(
     //   id: 1,
     //   name: "Mobile",
@@ -48,6 +56,10 @@ class CatalogModel {
     //   color: "Black",
     //   imageUrl: "https://images.pexels.com/photos/3394663/pexels-photo-3394663.jpeg?auto=compress&cs=tinysrgb&w=600",
     // ),
-
   ];
+  // get item by ID method
+  static Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+// get item by ID method
+static Item getByPosition(int pos)=>items[pos];
 }

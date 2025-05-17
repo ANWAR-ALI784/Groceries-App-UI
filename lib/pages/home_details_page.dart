@@ -12,6 +12,7 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).cardColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
@@ -35,7 +36,7 @@ class HomeDetailsPage extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: MyTheme.CreamColor,
+                backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
                 // foregroundColor: Colors.black,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
@@ -76,17 +77,17 @@ class HomeDetailsPage extends StatelessWidget {
             const SizedBox(height: 16),
             Text(
               catalog.name,
-             style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
+             style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Theme.of(context).colorScheme.secondary,),
             ),
             const SizedBox(height: 8),
             Text(
               catalog.desc,
-              style: TextStyle(fontSize: 18,color: MyTheme.CreamColor)
+              style: TextStyle(fontSize: 18,color: MyTheme.greyColor,)
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                loremIpsum(words: 40),style: TextStyle(color: MyTheme.CreamColor),
+                loremIpsum(words: 40),style: TextStyle(color: MyTheme.greyColor),
               ),
             ),
             const Spacer(),

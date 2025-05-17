@@ -33,30 +33,32 @@ class _LoginpageState extends State<Loginpage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-          child: Form(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Form(// for validation
             key: _forKey,
             child: Column(
               children: [
-                Image.asset("assets/images/giftitem.png"),
+                Image.asset("assets/images/giftitem.png",fit:BoxFit.cover ,),
                 const SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "login page $Name",
-                  style: const TextStyle(
+                  "Login Page $Name",
+                  style:  TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.amber),
+                      color: Theme.of(context).colorScheme.secondary),
                   textScaleFactor: 1.5,
                 ),
                 TextFormField(
-                  decoration: const InputDecoration(
+                  style: TextStyle(color: Theme.of(context).colorScheme.secondary),
+                  decoration:  InputDecoration(
                     labelText: "UserName",
+                    labelStyle: TextStyle(color: Theme.of(context).canvasColor),
                     hintText: " Enter Username",
+
                   ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -71,10 +73,12 @@ class _LoginpageState extends State<Loginpage> {
                   },
                 ),
                 TextFormField(
+                  style: TextStyle(color: Theme.of(context).colorScheme.secondary),
                   obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: "passowrd",
+                  decoration:  InputDecoration(
+                    labelText: "password",
                     hintText: " Enter password",
+                    labelStyle: TextStyle(color: Theme.of(context).canvasColor),
                   ),
                   validator: (value){
                     if(value == null || value.isEmpty){
@@ -104,11 +108,12 @@ class _LoginpageState extends State<Loginpage> {
                             Icons.done,
                             color: Colors.white,
                           )
-                        : Text("LogIn"),
+                        : Text("LogIn",style: TextStyle(color:Theme.of(context).colorScheme.secondary ),),
                     decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(changeButton ? 50 : 8),
-                        color: Colors.deepPurple),
+                        color: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                    ),
                   ),
                 ),
 

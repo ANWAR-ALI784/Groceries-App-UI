@@ -14,7 +14,7 @@ class CatalogList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: CatalogModel.items.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModel.items[index];
+          final catalog = CatalogModel.getByPosition(index);
           return InkWell(
               onTap: () {
                 Navigator.push(
@@ -41,7 +41,7 @@ class CatalogItem extends StatelessWidget {
           vertical: 10, horizontal: 4), // spacing between items
       padding: EdgeInsets.all(12), // inner spacing
       decoration: BoxDecoration(
-        color: Colors.white, // same as background
+        color: Theme.of(context).cardColor, // same as background
         borderRadius: BorderRadius.circular(15),
         // border: Border.all(
         //   color: Colors.white30, // light border for separation
@@ -63,7 +63,7 @@ class CatalogItem extends StatelessWidget {
             height: 90,
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: MyTheme.Bulish,
+              color: Theme.of(context).canvasColor,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Hero(
@@ -85,7 +85,7 @@ class CatalogItem extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
-                    color: MyTheme.CreamColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
                 SizedBox(height: 6),
@@ -93,7 +93,7 @@ class CatalogItem extends StatelessWidget {
                   catalog.desc,
                   style: GoogleFonts.poppins(
                     fontSize: 13,
-                    color: MyTheme.CreamColor,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
                 SizedBox(height: 10),
@@ -103,13 +103,13 @@ class CatalogItem extends StatelessWidget {
                     Text(
                       "\$${catalog.price}",
                       style: TextStyle(
-                        color: MyTheme.CreamColor,
+                        color:Theme.of(context).colorScheme.secondary,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: MyTheme.CreamColor,
+                        backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
                         // foregroundColor: Colors.black,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),

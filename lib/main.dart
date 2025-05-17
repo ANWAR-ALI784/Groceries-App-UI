@@ -5,7 +5,6 @@ import 'package:catalogapp/utils/routes.dart';
 import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -16,19 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-      debugShowCheckedModeBanner: true,
-      // home: //const Homepage(),
-     themeMode:ThemeMode.light,
-     theme: MyTheme.LightTheme(context),
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system, // 🌙 Adapts to system theme
+      theme: MyTheme.LightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      initialRoute: "/home",
+      initialRoute: MyRoutes.homeRoute, // change to loginRoute if needed
       routes: {
-        // "/":(context ) => const Loginpage(),
-        // "/login":(context) => const Loginpage(), best practise is this
-        MyRoutes.loginRoute:(context)=> const Loginpage(),
-        MyRoutes.homeRoute:(context)=> const Homepage(),
-        MyRoutes.CartPage:(context)=>const CartPage(),
+        MyRoutes.loginRoute: (context) => const Loginpage(),
+        MyRoutes.homeRoute: (context) => const Homepage(),
+        MyRoutes.CartPage: (context) => const CartPage(),
       },
     );
   }
