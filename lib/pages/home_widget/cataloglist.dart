@@ -14,7 +14,7 @@ class CatalogList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: CatalogModel.items.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModel.getByPosition(index);
+          final catalog = CatalogModel.items[index];
           return InkWell(
               onTap: () {
                 Navigator.push(
@@ -103,25 +103,26 @@ class CatalogItem extends StatelessWidget {
                     Text(
                       "\$${catalog.price}",
                       style: TextStyle(
-                        color:Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.secondary,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
+                        backgroundColor: Theme.of(context)
+                            .floatingActionButtonTheme
+                            .backgroundColor,
                         // foregroundColor: Colors.black,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
                       onPressed: () {
-
                         print("Buy pressed for ${catalog.name}");
                       },
                       child: Text(
                         "Add to Cart",
-                        style: TextStyle(color: Colors.white,fontSize: 12),
+                        style: TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     )
                   ],
