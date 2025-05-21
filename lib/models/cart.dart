@@ -1,6 +1,11 @@
 import 'package:catalogapp/models/catalog.dart';
 
 class CartModel{
+  // singleton class which create only time its object and we use it
+  static final catModel=CartModel._internal();
+  CartModel._internal();
+  factory CartModel()=>catModel; // shows the item on added cart page
+
  // field catalog
   late CatalogModel _catalog;
   // list of ids on item

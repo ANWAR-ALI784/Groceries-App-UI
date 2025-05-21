@@ -1,7 +1,9 @@
+import 'package:catalogapp/models/cart.dart';
 import 'package:catalogapp/pages/home_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../models/addtocart.dart';
 import '../../models/catalog.dart';
 import '../../utils/widgets/theme.dart';
 
@@ -107,24 +109,7 @@ class CatalogItem extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context)
-                            .floatingActionButtonTheme
-                            .backgroundColor,
-                        // foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      onPressed: () {
-                        print("Buy pressed for ${catalog.name}");
-                      },
-                      child: Text(
-                        "Add to Cart",
-                        style: TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                    )
+                    AddToCart(catalog: catalog,),
                   ],
                 )
               ],
@@ -135,3 +120,5 @@ class CatalogItem extends StatelessWidget {
     );
   }
 }
+
+

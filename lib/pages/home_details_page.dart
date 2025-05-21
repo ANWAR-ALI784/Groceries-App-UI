@@ -1,6 +1,8 @@
+import 'package:catalogapp/pages/home_widget/cataloglist.dart';
 import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:lorem_ipsum/lorem_ipsum.dart';
+import '../models/addtocart.dart';
 import '../models/catalog.dart';
 
 class HomeDetailsPage extends StatelessWidget {
@@ -34,23 +36,9 @@ class HomeDetailsPage extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
-                // foregroundColor: Colors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-              onPressed: () {
-                print("Buy pressed for ${catalog.name}");
-              },
-              child: Text(
-                "Add to Cart",
-                style: TextStyle(color: Colors.white,fontSize: 12),
-              ),
-            ),
+            child:AddToCart(catalog: catalog)
           )
+          
         ],
       ),
       body: SafeArea(top: true,
@@ -114,3 +102,8 @@ class ArcClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
+
+
+
+
+
