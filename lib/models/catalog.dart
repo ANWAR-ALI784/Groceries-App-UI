@@ -40,9 +40,9 @@ class Item {
 //object class
 class CatalogModel {
   //signleton class
-  static final catModel=CatalogModel._internal();
-  CatalogModel._internal();
-  factory CatalogModel() => catModel;
+  // static final catModel=CatalogModel._internal();
+  // CatalogModel._internal();
+  // factory CatalogModel() => catModel;
   // list of a item needded
   static List<Item> items = [
     // Item(

@@ -2,6 +2,9 @@ import 'package:catalogapp/models/cart.dart';
 import 'package:catalogapp/models/catalog.dart';
 import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/catalog-provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -33,25 +36,25 @@ class CartPage extends StatelessWidget {
 class _CartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final cart = context.watch<Mystore>().cart;
+
     return SizedBox(
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            "\$${_cart.totalPrice}",
+            "\$${cart.totalPrice}",
             style: TextStyle(
-                fontSize: 20, color: Theme.of(context).colorScheme.secondary),
+              fontSize: 20,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           ),
-          SizedBox(
-            width: 100,
-          ),
+          SizedBox(width: 100),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor:
-                  Theme.of(context).floatingActionButtonTheme.backgroundColor,
-              // foregroundColor: Colors.black,
+              Theme.of(context).floatingActionButtonTheme.backgroundColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -62,7 +65,7 @@ class _CartTotal extends StatelessWidget {
               );
             },
             child: Text(
-              "Add to Cart",
+              "Buy",
               style: TextStyle(color: Colors.white, fontSize: 12),
             ),
           ),
@@ -72,35 +75,39 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
+
+
+
+class _CartList extends StatelessWidget {
   const _CartList({super.key});
 
   @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
-  @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
-    return _cart.items!.isEmpty
+    final store = context.watch<Mystore>();
+    final cart = store.cart;
+
+    return cart.items.isEmpty
         ? Center(
-            child: Text(
-            "Nothing TO sHOW",
-            style: TextStyle(fontSize: 20),
-          ))
+      child: Text(
+        "Nothing TO sHOW",
+        style: TextStyle(fontSize: 20),
+      ),
+    )
         : ListView.builder(
-            itemCount: _cart.items.length,
-            itemBuilder: (context, index) => ListTile(
-              leading: Icon(Icons.done),
-              trailing: Icon(Icons.remove_circle),
-              onTap: () {
-                setState(() {
-                  _cart.removeItem(_cart.items[index]);
-                });
-              },
-              title: Text("\$${_cart.items[index].name}"),
-            ),
-          );
+      itemCount: cart.items.length,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.done),
+        trailing: Icon(Icons.remove_circle),
+        onTap: () {
+          // to remove item
+          store.removeItemFromCart(cart.items[index]);
+        },
+        title: Text("\$${cart.items[index].name}"),
+      ),
+    );
   }
 }
+
+
+
+

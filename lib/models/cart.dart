@@ -2,9 +2,9 @@ import 'package:catalogapp/models/catalog.dart';
 
 class CartModel{
   // singleton class which create only time its object and we use it
-  static final catModel=CartModel._internal();
-  CartModel._internal();
-  factory CartModel()=>catModel; // shows the item on added cart page
+  // static final catModel=CartModel._internal();
+  // CartModel._internal();
+  // factory CartModel()=>catModel; // shows the item on added cart page
 
  // field catalog
   late CatalogModel _catalog;
@@ -23,12 +23,13 @@ class CartModel{
   num get totalPrice =>
       items.fold(0,(total, current)=>total + current.price);
   // to add item
-void addItem(item){
-  _itemsid.add(item.id);
-}
+  void addItem(Item item) {
+    _itemsid.add(item.id);
+  }
+
 // item.id becuase we want get this by its id
 // to remove item from
-void removeItem(item){
+void removeItem(Item item){
   _itemsid.remove(item.id);
 }
 

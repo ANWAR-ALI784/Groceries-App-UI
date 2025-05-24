@@ -1,52 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'cart.dart';
 import 'catalog.dart';
+import 'catalog-provider.dart'; // For Mystore
 
-class AddToCart extends StatefulWidget {
+class AddToCart extends StatelessWidget {
   final Item catalog;
 
   const AddToCart({super.key, required this.catalog});
 
-
-  @override
-  State<AddToCart> createState() => AddToCartState();
-}
-
-class AddToCartState extends State<AddToCart> {
-  final _cart=CartModel();
   @override
   Widget build(BuildContext context) {
-    bool isInCart=_cart.items.contains(widget.catalog) ?? false;
-    return ElevatedButton(
+    final store=context.watch<Mystore>();
+    final cart= store.cart;
 
+    bool isInCart = cart.items.contains(catalog);
+
+    return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: Theme.of(context)
             .floatingActionButtonTheme
             .backgroundColor,
-        // foregroundColor: Colors.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
       ),
       onPressed: () {
-        if(!isInCart) {
-          isInCart = true;
-          final _catalog = CatalogModel();
-          // set the cart
-          _cart.catalog = _catalog;
-          _cart.addItem(widget.catalog);
-          print("pressed ");
+        if (!isInCart) {
+          store.addItemToCart(catalog);
 
-          setState(() {
-
-          });
         }
-        //print("Buy pressed for ${catalog.name}");
       },
-      child: isInCart? Icon(Icons.done):
-      Icon(CupertinoIcons.cart_badge_plus)
+      child: isInCart
+          ? const Icon(Icons.done)
+          : const Icon(CupertinoIcons.cart_badge_plus),
     );
   }
 }
