@@ -1,6 +1,3 @@
-import 'package:catalogapp/models/cart.dart';
-import 'package:catalogapp/models/catalog.dart';
-import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

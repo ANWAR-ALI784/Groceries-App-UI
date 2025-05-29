@@ -1,16 +1,16 @@
 import 'dart:convert';
+import 'package:badges/badges.dart' as badges;
 
 import 'package:catalogapp/models/catalog.dart';
 import 'package:catalogapp/utils/routes.dart';
-import 'package:catalogapp/utils/widgets/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:provider/provider.dart';
+import '../models/catalog-provider.dart';
 import 'home_widget/catalogeader.dart';
 import 'home_widget/cataloglist.dart';
-import 'package:catalogapp/utils/routes.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -39,23 +39,44 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).canvasColor, //MyTheme.lightBulish,
-      //floatingAction Button
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.CartPage),
-        backgroundColor: Theme.of(context).brightness == Brightness.dark
-            ? Theme.of(context).floatingActionButtonTheme.backgroundColor
-            // Dark mode color
-            : Theme.of(context)
-                .floatingActionButtonTheme
-                .backgroundColor, // Light mode color
-        child: Icon(
-          CupertinoIcons.cart,
-          color: Colors.white,
-          size: 30,
-        ),
+    return
+
+// Inside your Scaffold
+    Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
+      floatingActionButton: Builder(
+        builder: (context) {
+          final store = context.watch<Mystore>();
+          final cart = store.cart;
+
+          return badges.Badge(
+            position: badges.BadgePosition.topEnd(top: -8, end: -8),
+            badgeContent: Text(
+              '${cart.items.length}', // ✅ Dynamic cart item count
+              style: TextStyle(color: Colors.white, fontSize: 12),
+            ),
+            badgeStyle: badges.BadgeStyle(
+              badgeColor: Colors.red,
+              padding: EdgeInsets.all(6),
+            ),
+            child: FloatingActionButton(
+              onPressed: () => Navigator.pushNamed(context, MyRoutes.CartPage),
+              backgroundColor: Theme.of(context)
+                  .floatingActionButtonTheme
+                  .backgroundColor,
+              child: Icon(
+                CupertinoIcons.cart,
+                color: Colors.white,
+                size: 30,
+              ),
+            ),
+          );
+        },
       ),
+
+
+
+
 
       body: SafeArea(
         child: Container(
